@@ -27,7 +27,7 @@ const Footer = () => {
                             className="inline-block transition-transform hover:opacity-95 active:scale-98"
                         >
                             <Image
-                                src="/images/mainlogo-img1.jpg"
+                                src="/images/footer-img.jpg"
                                 alt="Ngựa Mơ Đà Lạt Logo"
                                 width={150}
                                 height={80}

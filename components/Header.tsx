@@ -12,9 +12,9 @@ interface NavItem {
 
 const navItems: NavItem[] = [
     { label: 'Trang chủ', href: '/' },
-    { label: 'Về chúng tôi', href: '/about' },
+    { label: 'Về chúng tôi', href: '/about-us' },
     { label: 'Dịch vụ', href: '/services' },
-    { label: 'Liên hệ', href: '/contact' },
+    { label: 'Liên hệ', href: '/contact-us' },
 ]
 
 const Header = () => {
