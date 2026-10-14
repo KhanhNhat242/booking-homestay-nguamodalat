@@ -3,16 +3,14 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Suspense } from "react";
+import { Be_Vietnam_Pro } from 'next/font/google'
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const beVietnam = Be_Vietnam_Pro({
+  subsets: ['latin', 'vietnamese'], // bắt buộc phải có 'vietnamese'
+  weight: ['300', '400', '500', '600', '700', '800'], // có 800 vì dùng font-extrabold
+  display: 'swap',
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
   title: "Booking Homestay",
@@ -21,10 +19,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
+    <html lang="vi" className={beVietnam.variable}>
       <body className="min-h-full flex flex-col">
         <Suspense fallback={null}>
           <AntdRegistry>{children}</AntdRegistry>

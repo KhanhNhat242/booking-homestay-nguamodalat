@@ -31,13 +31,13 @@ const Header = () => {
 
     return (
         <header className="w-full bg-white border-b border-neutral-100 shadow-sm sticky top-0 z-50 transition-all">
-            {/* Top Section: Logo & Toggle Button cho Mobile/Tablet */}
+            {/* Header Content: Logo bên trái & Navigation / Hamburger Button bên phải */}
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="relative flex items-center justify-between lg:justify-center py-3 md:py-4">
-                    {/* Logo ở phía trên (căn giữa trên desktop) */}
+                <div className="flex items-center justify-center py-3 md:py-4">
+                    {/* Logo bên trái */}
                     <Link
                         href="/"
-                        className="flex items-center justify-center transition-transform hover:opacity-90 active:scale-95"
+                        className="flex items-center transition-transform sm:mr-8 hover:opacity-90 active:scale-95"
                         onClick={closeMenu}
                     >
                         <Image
@@ -49,6 +49,33 @@ const Header = () => {
                             className="h-12 sm:h-14 md:h-16 w-auto object-contain"
                         />
                     </Link>
+
+                    {/* Thanh Navigation trên Desktop (nằm bên phải cùng hàng với Logo) */}
+                    <nav className="hidden lg:block">
+                        <ul className="flex flex-row items-center gap-8 xl:gap-10">
+                            {navItems.map((item) => {
+                                const isActive = pathname === item.href
+                                return (
+                                    <li key={item.href}>
+                                        <Link
+                                            href={item.href}
+                                            className={`group relative text-[15px] font-medium tracking-wide transition-colors duration-200 py-1 inline-block ${isActive
+                                                ? 'text-[#01796F] font-semibold'
+                                                : 'text-black hover:text-[#01796F]'
+                                                }`}
+                                        >
+                                            {item.label}
+                                            {/* Hiệu ứng thanh gạch chân khi hover hoặc active màu #01796F */}
+                                            <span
+                                                className={`absolute bottom-0 left-0 h-[2px] bg-[#01796F] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                                                    }`}
+                                            />
+                                        </Link>
+                                    </li>
+                                )
+                            })}
+                        </ul>
+                    </nav>
 
                     {/* Nút collapse (Hamburger button) tương thích Tablet và Mobile */}
                     <button
@@ -92,35 +119,6 @@ const Header = () => {
                     </button>
                 </div>
             </div>
-
-            {/* Bottom Section: Thanh Navigation trên Desktop (nằm bên dưới logo) */}
-            <nav className="hidden lg:block border-t border-neutral-100 bg-white">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <ul className="flex flex-row justify-center items-center gap-10 py-3.5">
-                        {navItems.map((item) => {
-                            const isActive = pathname === item.href
-                            return (
-                                <li key={item.href}>
-                                    <Link
-                                        href={item.href}
-                                        className={`group relative text-[15px] font-medium tracking-wide transition-colors duration-200 py-1 inline-block ${isActive
-                                            ? 'text-[#01796F] font-semibold'
-                                            : 'text-black hover:text-[#01796F]'
-                                            }`}
-                                    >
-                                        {item.label}
-                                        {/* Hiệu ứng thanh gạch chân khi hover hoặc active màu #01796F */}
-                                        <span
-                                            className={`absolute bottom-0 left-0 h-[2px] bg-[#01796F] transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'
-                                                }`}
-                                        />
-                                    </Link>
-                                </li>
-                            )
-                        })}
-                    </ul>
-                </div>
-            </nav>
 
             {/* Menu xổ xuống (Collapsible menu) khi bấm nút trên Tablet & Mobile */}
             <div
