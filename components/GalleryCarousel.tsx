@@ -101,13 +101,13 @@ interface GalleryCarouselProps {
 
 export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps) {
   const [current, setCurrent] = useState(0)
-  const [isMobile, setIsMobile] = useState(false)
+  const [windowWidth, setWindowWidth] = useState(1200)
   const touchX = useRef<number | null>(null)
   const total = galleryItems.length
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 640)
+      setWindowWidth(window.innerWidth)
     }
     handleResize()
     window.addEventListener('resize', handleResize)
@@ -140,29 +140,54 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
     return offset
   }
 
-  // Kiểu dáng 3D Coverflow cho từng card
+  // Kiểu dáng 3D Coverflow cho từng card mở rộng chạm tới nút điều hướng
   const getCardStyle = (offset: number) => {
     const abs = Math.abs(offset)
     if (abs > 2) {
       return {
-        transform: `translateX(calc(-50% + ${offset * 160}px)) scale(0.65)`,
+        transform: `translateX(calc(-50% + ${Math.sign(offset) * 800}px)) scale(0.65)`,
         opacity: 0,
         zIndex: 0,
         pointerEvents: 'none' as const,
       }
     }
 
-    const spacing = isMobile ? 115 : 195
-    const x = offset * spacing
-    const scale = abs === 0 ? 1 : abs === 1 ? 0.9 : 0.8
-    const opacity = abs === 0 ? 1 : abs === 1 ? 0.75 : 0.38
+    let primarySpacing = 370
+    let secondarySpacing = 220
+
+    if (windowWidth < 640) {
+      primarySpacing = 135
+      secondarySpacing = 95
+    } else if (windowWidth < 768) {
+      primarySpacing = 210
+      secondarySpacing = 130
+    } else if (windowWidth < 1024) {
+      primarySpacing = 280
+      secondarySpacing = 175
+    } else if (windowWidth < 1280) {
+      primarySpacing = 340
+      secondarySpacing = 210
+    } else {
+      primarySpacing = 390
+      secondarySpacing = 240
+    }
+
+    const x =
+      abs === 0
+        ? 0
+        : abs === 1
+          ? Math.sign(offset) * primarySpacing
+          : Math.sign(offset) * (primarySpacing + secondarySpacing)
+
+    const scale = abs === 0 ? 1 : abs === 1 ? 0.92 : 0.82
+    const opacity = abs === 0 ? 1 : abs === 1 ? 0.82 : 0.45
     const zIndex = 30 - abs * 10
 
     return {
       transform: `translateX(calc(-50% + ${x}px)) scale(${scale})`,
       opacity,
       zIndex,
-      filter: abs === 0 ? 'none' : 'brightness(0.92)',
+      filter: abs === 0 ? 'none' : 'brightness(0.93)',
       pointerEvents: 'auto' as const,
     }
   }
@@ -171,7 +196,7 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
     <div className="relative w-full overflow-hidden py-1 select-none">
       {/* Vùng Coverflow chứa các cards */}
       <div
-        className="relative h-[375px] sm:h-[395px] w-full max-w-6xl flex items-center justify-center"
+        className="relative h-[400px] sm:h-[430px] md:h-[455px] lg:h-[475px] w-full flex items-center justify-center"
         onTouchStart={(e) => {
           touchX.current = e.touches[0].clientX
         }}
@@ -189,20 +214,20 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
         <button
           onClick={prevSlide}
           aria-label="Ảnh trước"
-          className="absolute left-1 sm:left-4 lg:left-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          className="absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-md border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M15 19l-7-7 7-7" />
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
         <button
           onClick={nextSlide}
           aria-label="Ảnh tiếp theo"
-          className="absolute right-1 sm:right-4 lg:right-8 top-1/2 -translate-y-1/2 z-40 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/95 border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-md flex items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer"
+          className="absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-md border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
         >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.2" d="M9 5l7 7-7 7" />
+          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M9 5l7 7-7 7" />
           </svg>
         </button>
 
@@ -222,18 +247,18 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
                 }
               }}
               style={style}
-              className={`absolute top-0 left-1/2 w-[265px] sm:w-[305px] h-[360px] sm:h-[380px] bg-white rounded-[24px] p-3 sm:p-3.5 shadow-xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between border border-[#EDE4D5]/80 cursor-pointer ${isCenter
+              className={`absolute top-0 left-1/2 w-[275px] sm:w-[325px] md:w-[365px] lg:w-[395px] xl:w-[415px] h-[385px] sm:h-[415px] md:h-[440px] lg:h-[460px] bg-white rounded-[24px] p-3 sm:p-4 shadow-xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between border border-[#EDE4D5]/80 cursor-pointer ${isCenter
                 ? 'shadow-2xl ring-2 ring-[#8D4427]/20 cursor-pointer'
                 : 'hover:opacity-90'
                 }`}
             >
               {/* Ảnh phía trên */}
-              <div className="relative w-full h-44 sm:h-48 rounded-[18px] overflow-hidden shrink-0 group">
+              <div className="relative w-full h-48 sm:h-54 md:h-60 lg:h-64 rounded-[18px] overflow-hidden shrink-0 group">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 270px, 310px"
+                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 420px"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />

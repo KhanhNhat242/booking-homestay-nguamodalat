@@ -1,4 +1,5 @@
 import React from 'react'
+import { PhoneOutlined, FacebookOutlined, EnvironmentOutlined, TikTokOutlined } from '@ant-design/icons';
 
 const Footer = () => {
 
@@ -7,8 +8,8 @@ const Footer = () => {
     }
 
     return (
-        <footer className="bg-[#854427] text-[#FAF7F2] pt-16 pb-8 border-t border-[#73391F]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <footer className="bg-[#854427] text-[#FAF7F2] pt-16 pb-8 border-t border-[#73391F] selection:bg-[#FAF7F2] selection:text-[#1A3B2F]">
+            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
 
                 <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/15">
 
@@ -60,26 +61,26 @@ const Footer = () => {
                         <ul className="space-y-2.5 text-xs sm:text-sm text-stone-200/90 font-light">
                             <li>
                                 <a href="tel:0911942968" className="hover:text-white transition-colors flex items-center gap-2">
-                                    <span>📞</span>
+                                    <span><PhoneOutlined /></span>
                                     <span>091 1942968</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="https://zalo.me/0911942968" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
-                                    <span>💬</span>
-                                    <span>Zalo</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="https://www.facebook.com/profile.php?id=61559001633103" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
-                                    <span>🌐</span>
+                                    <span><FacebookOutlined /></span>
                                     <span>Facebook</span>
                                 </a>
                             </li>
                             <li>
+                                <a href="https://www.tiktok.com/@nguamodalat" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
+                                    <span><TikTokOutlined /></span>
+                                    <span>Tiktok</span>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="https://www.google.com/maps/search/+l,+%C4%90%C3%A0+L%E1%BA%A1t,+Vietnam,+66106/@11.928106,108.3977835,17070m/data=!3m2!1e3!4b1" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors flex items-center gap-2">
-                                    <span>📍</span>
-                                    <span>l, Đà Lạt, Vietnam, 66106</span>
+                                    <span><EnvironmentOutlined /></span>
+                                    <span>Đà Lạt, Vietnam, 66106</span>
                                 </a>
                             </li>
                         </ul>
