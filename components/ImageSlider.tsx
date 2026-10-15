@@ -80,7 +80,7 @@ function Reveal({
 }
 
 const Arrow = ({ dir }: { dir: 'left' | 'right' }) => (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="w-4 h-4 md:w-5 md:h-5 2xl:w-6 2xl:h-6">
         <path
             d={dir === 'left' ? 'M15 5l-7 7 7 7' : 'M9 5l7 7-7 7'}
             strokeLinecap="round"
@@ -133,7 +133,7 @@ export default function ImageSlider() {
     return (
         <section
             aria-roledescription="carousel"
-            className="relative h-[88svh] min-h-[520px] w-full select-none overflow-hidden bg-neutral-950"
+            className="relative h-[88svh] 2xl:h-[90svh] [@media(min-width:1920px)]:h-[92svh] min-h-[520px] 2xl:min-h-[700px] [@media(min-width:1920px)]:min-h-[820px] [@media(min-width:2560px)]:min-h-[960px] w-full select-none overflow-hidden bg-neutral-950"
             onTouchStart={(e) => {
                 touchX.current = e.touches[0].clientX
             }}
@@ -179,11 +179,11 @@ export default function ImageSlider() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
                         {/* Nội dung */}
-                        <div className="absolute bottom-[40%] left-[7%] right-[7%] max-w-xl text-white">
-                            <div className="mt-5">
+                        <div className="absolute bottom-[36%] sm:bottom-[38%] 2xl:bottom-[35%] [@media(min-width:1920px)]:bottom-[34%] left-[7%] right-[7%] 2xl:left-[8%] 2xl:right-[8%] max-w-xl 2xl:max-w-3xl [@media(min-width:1920px)]:max-w-4xl [@media(min-width:2560px)]:max-w-5xl text-white">
+                            <div className="mt-5 2xl:mt-7">
                                 {s.title.map((line, k) => (
                                     <Reveal key={line} show={play} delay={850 + k * 150}>
-                                        <h2 className={`${playfair.className} text-4xl font-extrabold italic uppercase leading-[1.1] drop-shadow-lg sm:text-5xl md:text-7xl`}>
+                                        <h2 className={`${playfair.className} text-4xl font-extrabold italic uppercase leading-[1.1] 2xl:leading-[1.05] drop-shadow-lg sm:text-5xl md:text-7xl 2xl:text-8xl [@media(min-width:1920px)]:text-[96px] [@media(min-width:2560px)]:text-[112px]`}>
                                             {line}
                                         </h2>
                                     </Reveal>
@@ -191,9 +191,15 @@ export default function ImageSlider() {
                             </div>
 
                             <Reveal show={play} delay={1150}>
-                                <h3 className="mt-3 text-base font-medium italic uppercase tracking-[0.2em] text-amber-200 md:text-xl">
+                                <h3 className="mt-3 2xl:mt-5 text-base font-medium italic uppercase tracking-[0.2em] 2xl:tracking-[0.25em] text-amber-200 md:text-xl 2xl:text-2xl [@media(min-width:1920px)]:text-3xl">
                                     {s.subtitle}
                                 </h3>
+                            </Reveal>
+
+                            <Reveal show={play} delay={1300}>
+                                <p className="mt-3 2xl:mt-5 text-xs sm:text-sm md:text-base 2xl:text-xl [@media(min-width:1920px)]:text-2xl text-stone-200/90 font-light max-w-lg 2xl:max-w-2xl [@media(min-width:1920px)]:max-w-3xl leading-relaxed drop-shadow line-clamp-2 sm:line-clamp-none">
+                                    {s.desc}
+                                </p>
                             </Reveal>
                         </div>
                     </article>
@@ -201,9 +207,9 @@ export default function ImageSlider() {
             })}
 
             {/* Thanh điều khiển */}
-            <div className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-between gap-6 px-[7%] pb-7 md:pb-10">
+            <div className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-between gap-6 2xl:gap-12 px-[7%] 2xl:px-[8%] pb-7 md:pb-10 2xl:pb-14 [@media(min-width:1920px)]:pb-16">
                 {/* Tab đánh số + progress */}
-                <div className="flex max-w-2xl flex-1 gap-3 md:gap-6">
+                <div className="flex max-w-2xl 2xl:max-w-4xl [@media(min-width:1920px)]:max-w-5xl flex-1 gap-3 md:gap-6 2xl:gap-8">
                     {slides.map((s, i) => {
                         const on = ready && i === current
                         return (
@@ -211,16 +217,16 @@ export default function ImageSlider() {
                                 key={s.src}
                                 onClick={() => goTo(i)}
                                 aria-label={`Đến slide ${i + 1}`}
-                                className="group flex-1 text-left text-white"
+                                className="group flex-1 text-left text-white cursor-pointer"
                             >
                                 <span
-                                    className={`flex items-baseline gap-2 text-xs tracking-widest transition-opacity md:text-sm ${i === current ? 'opacity-100' : 'opacity-50 group-hover:opacity-80'
+                                    className={`flex items-baseline gap-2 text-xs tracking-widest transition-opacity md:text-sm 2xl:text-base [@media(min-width:1920px)]:text-lg ${i === current ? 'opacity-100' : 'opacity-50 group-hover:opacity-80'
                                         }`}
                                 >
                                     <span>0{i + 1}</span>
                                     <span className="hidden truncate uppercase lg:block">{s.title.join(' ')}</span>
                                 </span>
-                                <span className="mt-3 block h-[2px] w-full overflow-hidden bg-white/30">
+                                <span className="mt-3 2xl:mt-4 block h-[2px] 2xl:h-[3px] w-full overflow-hidden bg-white/30 rounded-full">
                                     <span
                                         className={`block h-full origin-left bg-white ${on
                                             ? 'scale-x-100 transition-transform ease-linear'
@@ -235,13 +241,13 @@ export default function ImageSlider() {
                 </div>
 
                 {/* Nút điều hướng */}
-                <div className="hidden gap-3 md:flex">
+                <div className="hidden gap-3 2xl:gap-4 md:flex">
                     {(['left', 'right'] as const).map((d) => (
                         <button
                             key={d}
                             onClick={d === 'left' ? prevSlide : next}
                             aria-label={d === 'left' ? 'Slide trước' : 'Slide sau'}
-                            className="grid h-12 w-12 place-items-center rounded-full border border-white/40 text-white backdrop-blur transition-all duration-300 hover:scale-110 hover:bg-white hover:text-black"
+                            className="grid h-12 w-12 2xl:h-16 2xl:w-16 [@media(min-width:1920px)]:h-18 [@media(min-width:1920px)]:w-18 place-items-center rounded-full border border-white/40 text-white backdrop-blur transition-all duration-300 hover:scale-110 hover:bg-white hover:text-black cursor-pointer shadow-lg"
                         >
                             <Arrow dir={d} />
                         </button>

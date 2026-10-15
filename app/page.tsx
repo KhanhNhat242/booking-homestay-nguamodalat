@@ -70,9 +70,9 @@ export default function Home() {
       </div>
 
       {/* 3. SECTION "VỀ CHÚNG TÔI & ĐIỂM NỔI BẬT" */}
-      <section id="about-us" className="py-14 sm:py-18 lg:py-20 relative overflow-hidden bg-[#FAF7F2]">
+      <section id="about-us" className="py-14 sm:py-18 lg:py-20 2xl:py-24 [@media(min-width:1920px)]:py-28 relative overflow-hidden bg-[#FAF7F2]">
         {/* Left Botanical Wildflower / Dã Quỳ illustration */}
-        <div className="absolute left-0 top-1/3 -translate-y-1/2 w-28 sm:w-44 pointer-events-none opacity-20 text-[#8D4427]">
+        <div className="absolute left-0 top-1/3 -translate-y-1/2 w-28 sm:w-44 2xl:w-56 [@media(min-width:1920px)]:w-72 pointer-events-none opacity-20 text-[#8D4427]">
           <svg viewBox="0 0 120 220" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M40,210 Q60,130 50,60" />
             <path d="M48,160 Q20,150 15,130 Q35,135 46,145" />
@@ -91,7 +91,7 @@ export default function Home() {
         </div>
 
         {/* Right Pine Cone & Needles illustration */}
-        <div className="absolute right-0 top-2/3 -translate-y-1/2 w-32 sm:w-48 pointer-events-none opacity-20 text-[#6E645B]">
+        <div className="absolute right-0 top-2/3 -translate-y-1/2 w-32 sm:w-48 2xl:w-60 [@media(min-width:1920px)]:w-76 pointer-events-none opacity-20 text-[#6E645B]">
           <svg viewBox="0 0 140 200" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M140,20 Q80,25 20,50" />
             <path d="M90,24 Q60,5 30,12" />
@@ -109,29 +109,29 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-14">
+        <div className="relative z-10 max-w-[1400px] 2xl:max-w-[1580px] [@media(min-width:1920px)]:max-w-[1760px] [@media(min-width:2400px)]:max-w-[2100px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10 [@media(min-width:1920px)]:px-12 space-y-12 sm:space-y-14 2xl:space-y-18">
 
           {/* Top Intro: Text & Image Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 2xl:gap-18 items-center">
 
             {/* Left Column: Intro Text */}
-            <div className="lg:col-span-7 space-y-6">
+            <div className="lg:col-span-7 space-y-6 2xl:space-y-8">
 
               {/* Tag */}
-              <div className="flex items-center gap-2 text-[#8D4427] text-xs font-semibold uppercase tracking-wider">
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="flex items-center gap-2 text-[#8D4427] text-xs 2xl:text-sm font-semibold uppercase tracking-wider">
+                <svg className="w-4 h-4 2xl:w-5 2xl:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
                 </svg>
                 <span>VỀ CHÚNG TÔI</span>
               </div>
 
               {/* Title */}
-              <h2 className="font-serif text-3xl sm:text-4xl text-[#2A2421] font-normal leading-tight tracking-tight">
+              <h2 className="font-serif text-3xl sm:text-4xl 2xl:text-5xl [@media(min-width:1920px)]:text-6xl text-[#2A2421] font-normal leading-tight tracking-tight">
                 Không chỉ là nơi nghỉ chân – Chuẩn gu nghỉ dưỡng tại Đà Lạt
               </h2>
 
               {/* Main Content Paragraph */}
-              <p className="text-[#5C534E] text-base sm:text-lg leading-relaxed">
+              <p className="text-[#5C534E] text-base sm:text-lg 2xl:text-xl [@media(min-width:1920px)]:text-2xl leading-relaxed">
                 Hệ thống booking homestay, khách sạn và villa cao cấp tại Đà Lạt, được tuyển chọn kỹ lưỡng từ các đối tác uy tín.
                 Mang đến không gian lưu trú <strong className="text-[#2A2421] font-semibold"> an toàn – đẹp mắt – chuẩn nghỉ dưỡng </strong>, cho kỳ nghỉ riêng tư và đáng nhớ.
               </p>
@@ -140,7 +140,7 @@ export default function Home() {
 
             {/* Right Column: Featured Image with Badge */}
             <div className="lg:col-span-5 relative">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl border border-[#EDE4D5] aspect-[4/3] w-full group">
+              <div className="relative rounded-3xl 2xl:rounded-[36px] overflow-hidden shadow-xl border border-[#EDE4D5] aspect-[4/3] 2xl:aspect-[16/11] w-full group">
                 <Image
                   src="/images/about-homestay.jpg"
                   alt="Không gian lưu trú chọn lọc tại Ngủ Ấm Ở Đà Lạt"
@@ -151,7 +151,7 @@ export default function Home() {
               </div>
 
               {/* Decorative Botanical Art */}
-              <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-16 h-32 pointer-events-none opacity-30 text-[#6E645B] hidden sm:block">
+              <div className="absolute -right-6 top-1/2 -translate-y-1/2 w-16 h-32 2xl:w-20 2xl:h-40 pointer-events-none opacity-30 text-[#6E645B] hidden sm:block">
                 <svg viewBox="0 0 80 160" fill="none" stroke="currentColor" strokeWidth="1.5">
                   <path d="M40,150 Q40,80 50,10" />
                   <path d="M40,120 Q65,110 70,100 Q50,95 40,110" />
@@ -165,7 +165,7 @@ export default function Home() {
           </div>
 
           {/* Phần: Điểm Nổi Bật Của Dịch Vụ */}
-          <div className="pt-8 sm:pt-10">
+          <div className="pt-8 sm:pt-10 2xl:pt-14">
             <FeaturesCarousel />
           </div>
         </div>
@@ -173,7 +173,7 @@ export default function Home() {
 
       {/* SECTION "ĐỐI TƯỢNG PHỤC VỤ & SỨC CHỨA LINH ĐỘNG" (Parallax Banner Background) */}
       <section
-        className="relative z-0 py-16 sm:py-20 lg:py-24 overflow-hidden bg-fixed bg-center bg-cover [clip-path:inset(0)]"
+        className="relative z-0 py-16 sm:py-20 lg:py-24 2xl:py-28 [@media(min-width:1920px)]:py-32 overflow-hidden bg-fixed bg-center bg-cover [clip-path:inset(0)]"
         style={{ backgroundImage: "url('/images/banner-img.jpg')" }}
       >
         {/* Fixed parallax backdrop bounded strictly within this section */}
@@ -184,60 +184,60 @@ export default function Home() {
 
         {/* Dark overlay for contrast & cozy evening glow */}
         <div className="absolute inset-0 bg-black/70 pointer-events-none -z-10" />
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-16">
+        <div className="relative z-10 max-w-[1400px] 2xl:max-w-[1580px] [@media(min-width:1920px)]:max-w-[1760px] [@media(min-width:2400px)]:max-w-[2100px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10 [@media(min-width:1920px)]:px-12 space-y-12 sm:space-y-16 2xl:space-y-20">
 
           {/* Phần 1: ĐỐI TƯỢNG PHỤC VỤ */}
           <div>
-            <div className="mb-8">
-              <span className="text-emerald-300 text-xs font-semibold uppercase tracking-wider">
+            <div className="mb-8 2xl:mb-12">
+              <span className="text-emerald-300 text-xs 2xl:text-sm font-semibold uppercase tracking-wider">
                 ĐỐI TƯỢNG PHỤC VỤ
               </span>
-              <h3 className="font-serif text-2xl sm:text-3xl text-white font-normal mt-1">
+              <h3 className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl text-white font-normal mt-1">
                 Phù hợp với ai?
               </h3>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 2xl:gap-8 [@media(min-width:1920px)]:gap-10">
               {/* Target 1 */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl flex items-start gap-4 hover:bg-white/15 transition-all">
-                <div className="w-11 h-11 rounded-full bg-white/15 text-white flex items-center justify-center shrink-0 mt-0.5 font-serif text-xl">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 border border-white/20 shadow-xl flex items-start gap-4 2xl:gap-5 hover:bg-white/15 transition-all">
+                <div className="w-11 h-11 2xl:w-14 2xl:h-14 rounded-full bg-white/15 text-white flex items-center justify-center shrink-0 mt-0.5 font-serif text-xl 2xl:text-2xl">
                   <UserOutlined />
                 </div>
                 <div>
-                  <h4 className="font-medium text-white text-base mb-1.5">
+                  <h4 className="font-medium text-white text-base 2xl:text-xl mb-1.5 2xl:mb-2">
                     Du khách cá nhân & Cặp đôi
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm 2xl:text-base text-stone-200/90 leading-relaxed font-light">
                     Tìm kiếm trải nghiệm lãng mạn, yên tĩnh, chữa lành giữa không khí dịu mát của phố sương.
                   </p>
                 </div>
               </div>
 
               {/* Target 2 */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl flex items-start gap-4 hover:bg-white/15 transition-all">
-                <div className="w-11 h-11 rounded-full bg-white/15 text-white flex items-center justify-center shrink-0 mt-0.5 font-serif text-xl">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 border border-white/20 shadow-xl flex items-start gap-4 2xl:gap-5 hover:bg-white/15 transition-all">
+                <div className="w-11 h-11 2xl:w-14 2xl:h-14 rounded-full bg-white/15 text-white flex items-center justify-center shrink-0 mt-0.5 font-serif text-xl 2xl:text-2xl">
                   <HomeOutlined />
                 </div>
                 <div>
-                  <h4 className="font-medium text-white text-base mb-1.5">
+                  <h4 className="font-medium text-white text-base 2xl:text-xl mb-1.5 2xl:mb-2">
                     Nhóm bạn & Gia đình
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm 2xl:text-base text-stone-200/90 leading-relaxed font-light">
                     Cần không gian riêng tư, ấm cúng, có sân vườn nướng BBQ và đầy đủ tiện nghi sinh hoạt chung.
                   </p>
                 </div>
               </div>
 
               {/* Target 3 */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl flex items-start gap-4 hover:bg-white/15 transition-all">
-                <div className="w-11 h-11 rounded-full bg-white/15 text-white flex items-center justify-center shrink-0 mt-0.5 font-serif text-xl">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 border border-white/20 shadow-xl flex items-start gap-4 2xl:gap-5 hover:bg-white/15 transition-all">
+                <div className="w-11 h-11 2xl:w-14 2xl:h-14 rounded-full bg-white/15 text-white flex items-center justify-center shrink-0 mt-0.5 font-serif text-xl 2xl:text-2xl">
                   <GlobalOutlined />
                 </div>
                 <div>
-                  <h4 className="font-medium text-white text-base mb-1.5">
+                  <h4 className="font-medium text-white text-base 2xl:text-xl mb-1.5 2xl:mb-2">
                     Doanh nhân & Tổ chức
                   </h4>
-                  <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed font-light">
+                  <p className="text-xs sm:text-sm 2xl:text-base text-stone-200/90 leading-relaxed font-light">
                     Cần đặt villa nghỉ dưỡng biệt lập kết hợp làm việc từ xa, team retreat và hội thảo riêng tư.
                   </p>
                 </div>
@@ -250,32 +250,32 @@ export default function Home() {
 
           {/* Phần 2: SỨC CHỨA LINH ĐỘNG */}
           <div>
-            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8">
-              <div className="space-y-2.5 max-w-2xl">
-                <h3 className="font-serif text-2xl sm:text-3xl text-white font-medium">
+            <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-8 2xl:gap-12">
+              <div className="space-y-2.5 2xl:space-y-4 max-w-2xl 2xl:max-w-3xl">
+                <h3 className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl text-white font-medium">
                   Sức chứa linh động theo nhu cầu từ 2 – 36 người
                 </h3>
-                <p className="text-xs sm:text-sm text-stone-200/90 leading-relaxed font-light">
+                <p className="text-xs sm:text-sm 2xl:text-base text-stone-200/90 leading-relaxed font-light">
                   Dù bạn đi một mình, đi cùng người thương, gia đình sum vầy hay nhóm bạn và công ty tổ chức đoàn đông – chúng tôi luôn có giải pháp phòng nghỉ lẻ hoặc thuê nguyên căn villa biệt lập từ 2 đến 36 người với đầy đủ bếp nấu, phòng sinh hoạt và sân BBQ riêng tư.
                 </p>
               </div>
 
               {/* 3 Capacity Badges */}
-              <div className="grid grid-cols-3 gap-4 sm:gap-6 shrink-0 w-full lg:w-auto">
+              <div className="grid grid-cols-3 gap-4 sm:gap-6 2xl:gap-8 [@media(min-width:1920px)]:gap-10 shrink-0 w-full lg:w-auto">
                 <div className="text-center drop-shadow-md">
-                  <span className="block text-xs sm:text-sm text-emerald-300 font-medium mb-1">Cặp đôi / Bạn bè</span>
-                  <span className="font-serif text-2xl sm:text-3xl font-bold text-white block">2 – 4</span>
-                  <span className="block text-xs text-stone-200/90 mt-1 font-light">người / phòng</span>
+                  <span className="block text-xs sm:text-sm 2xl:text-base text-emerald-300 font-medium mb-1">Cặp đôi / Bạn bè</span>
+                  <span className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl font-bold text-white block">2 – 4</span>
+                  <span className="block text-xs 2xl:text-sm text-stone-200/90 mt-1 font-light">người / phòng</span>
                 </div>
                 <div className="text-center drop-shadow-md">
-                  <span className="block text-xs sm:text-sm text-emerald-300 font-medium mb-1">Gia đình ấm cúng</span>
-                  <span className="font-serif text-2xl sm:text-3xl font-bold text-white block">4 – 8</span>
-                  <span className="block text-xs text-stone-200/90 mt-1 font-light">người / phòng</span>
+                  <span className="block text-xs sm:text-sm 2xl:text-base text-emerald-300 font-medium mb-1">Gia đình ấm cúng</span>
+                  <span className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl font-bold text-white block">4 – 8</span>
+                  <span className="block text-xs 2xl:text-sm text-stone-200/90 mt-1 font-light">người / phòng</span>
                 </div>
                 <div className="text-center drop-shadow-md">
-                  <span className="block text-xs sm:text-sm text-emerald-300 font-medium mb-1">Nguyên căn / Villa</span>
-                  <span className="font-serif text-2xl sm:text-3xl font-bold text-white block">10 – 36</span>
-                  <span className="block text-xs text-stone-200/90 mt-1 font-light">người / đoàn</span>
+                  <span className="block text-xs sm:text-sm 2xl:text-base text-emerald-300 font-medium mb-1">Nguyên căn / Villa</span>
+                  <span className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl font-bold text-white block">10 – 36</span>
+                  <span className="block text-xs 2xl:text-sm text-stone-200/90 mt-1 font-light">người / đoàn</span>
                 </div>
               </div>
             </div>
@@ -285,9 +285,9 @@ export default function Home() {
       </section>
 
       {/* 4. SECTION "CÁC DẠNG VIEW PHÒNG ĐẶC TRƯNG" */}
-      <section id="service" className="py-16 sm:py-20 lg:py-24 bg-[#FAF7F2] border-t border-[#EDE4D5] relative overflow-hidden">
+      <section id="service" className="py-16 sm:py-20 lg:py-24 2xl:py-28 [@media(min-width:1920px)]:py-32 bg-[#FAF7F2] border-t border-[#EDE4D5] relative overflow-hidden">
         {/* Left Rolling Valley Fog & Morning Mist illustration */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-32 sm:w-48 pointer-events-none opacity-20 text-[#8D4427]">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-32 sm:w-48 2xl:w-60 [@media(min-width:1920px)]:w-76 pointer-events-none opacity-20 text-[#8D4427]">
           <svg viewBox="0 0 140 220" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M10,30 A18,18 0 0,1 30,10" strokeDasharray="3 3" />
             <path d="M40,20 L55,10" />
@@ -300,7 +300,7 @@ export default function Home() {
         </div>
 
         {/* Right Fern Fronds (Dương xỉ rừng sương) illustration */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-32 sm:w-48 pointer-events-none opacity-20 text-[#6E645B]">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-32 sm:w-48 2xl:w-60 [@media(min-width:1920px)]:w-76 pointer-events-none opacity-20 text-[#6E645B]">
           <svg viewBox="0 0 130 240" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M110,230 Q70,150 50,20" />
             <path d="M98,205 Q70,195 55,202 Q75,185 92,192" />
@@ -313,19 +313,19 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full mb-6 sm:mb-8 flex flex-row items-center justify-center">
-            <h3 className="font-serif text-2xl sm:text-3xl text-[#2A2421] font-normal tracking-tight">
+        <div className="relative z-10 max-w-[1400px] 2xl:max-w-[1580px] [@media(min-width:1920px)]:max-w-[1760px] [@media(min-width:2400px)]:max-w-[2100px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10 [@media(min-width:1920px)]:px-12">
+          <div className="w-full mb-6 sm:mb-8 2xl:mb-12 flex flex-row items-center justify-center">
+            <h3 className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl text-[#2A2421] font-normal tracking-tight">
               Các dạng view phòng đặc trưng
             </h3>
           </div>
 
           {/* 3 View Room Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 2xl:gap-10 [@media(min-width:1920px)]:gap-12">
             {viewRoomCards.map((room) => (
               <div
                 key={room.title}
-                className="bg-white rounded-3xl overflow-hidden border border-[#E9E1D2] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1"
+                className="bg-white rounded-3xl 2xl:rounded-[36px] overflow-hidden border border-[#E9E1D2] shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col group hover:-translate-y-1"
               >
                 {/* Room Image */}
                 <div className="relative aspect-[16/11] w-full overflow-hidden bg-stone-100">
@@ -339,12 +339,12 @@ export default function Home() {
                 </div>
 
                 {/* Card Content */}
-                <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2">
-                    <h4 className="font-serif text-xl font-medium text-[#2A2421] group-hover:text-[#8D4427] transition-colors">
+                <div className="p-6 2xl:p-8 flex-1 flex flex-col justify-between space-y-4 2xl:space-y-6">
+                  <div className="space-y-2 2xl:space-y-3">
+                    <h4 className="font-serif text-xl 2xl:text-2xl font-medium text-[#2A2421] group-hover:text-[#8D4427] transition-colors">
                       {room.title}
                     </h4>
-                    <p className="text-xs sm:text-sm text-[#5C534E] leading-relaxed line-clamp-3">
+                    <p className="text-xs sm:text-sm 2xl:text-base text-[#5C534E] leading-relaxed line-clamp-3">
                       {room.desc}
                     </p>
                   </div>
@@ -356,9 +356,9 @@ export default function Home() {
       </section>
 
       {/* 5. SECTION "KHOẢNH KHẮC TẠI NGỦ ẤM" */}
-      <section id="gallery" className="py-16 sm:py-20 lg:py-24 bg-[#FAF7F2] border-t border-[#EDE4D5] relative overflow-hidden">
+      <section id="gallery" className="py-16 sm:py-20 lg:py-24 2xl:py-28 [@media(min-width:1920px)]:py-32 bg-[#FAF7F2] border-t border-[#EDE4D5] relative overflow-hidden">
         {/* Left Maple Leaf Branch illustration */}
-        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-32 sm:w-48 pointer-events-none opacity-20 text-[#8D4427]">
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 w-32 sm:w-48 2xl:w-60 [@media(min-width:1920px)]:w-76 pointer-events-none opacity-20 text-[#8D4427]">
           <svg viewBox="0 0 140 220" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M10,210 Q40,150 70,60" />
             <path d="M45,140 Q80,130 100,140" />
@@ -370,7 +370,7 @@ export default function Home() {
         </div>
 
         {/* Right Retro Camera Viewfinder & Memory Frame illustration */}
-        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-36 sm:w-52 pointer-events-none opacity-20 text-[#6E645B]">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 w-36 sm:w-52 2xl:w-64 [@media(min-width:1920px)]:w-80 pointer-events-none opacity-20 text-[#6E645B]">
           <svg viewBox="0 0 150 200" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M30,50 H50 M30,50 V70" strokeWidth="2" />
             <path d="M130,50 H110 M130,50 V70" strokeWidth="2" />
@@ -384,14 +384,14 @@ export default function Home() {
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 space-y-6 sm:space-y-8">
+        <div className="relative z-10 max-w-[1400px] 2xl:max-w-[1580px] [@media(min-width:1920px)]:max-w-[1760px] [@media(min-width:2400px)]:max-w-[2100px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10 [@media(min-width:1920px)]:px-12 space-y-6 sm:space-y-8 2xl:space-y-12">
           {/* Section Heading Center */}
-          <div className="text-center max-w-2xl mx-auto space-y-1.5">
-            <h2 className="font-serif text-2xl sm:text-3xl text-[#2A2421] font-normal leading-tight tracking-tight">
+          <div className="text-center max-w-2xl 2xl:max-w-3xl mx-auto space-y-1.5 2xl:space-y-3">
+            <h2 className="font-serif text-2xl sm:text-3xl 2xl:text-4xl [@media(min-width:1920px)]:text-5xl text-[#2A2421] font-normal leading-tight tracking-tight">
               Khoảnh khắc tại Ngủ Ấm
             </h2>
 
-            <p className="text-[#5C534E] text-xs sm:text-sm leading-relaxed max-w-lg mx-auto font-light">
+            <p className="text-[#5C534E] text-xs sm:text-sm 2xl:text-base leading-relaxed max-w-lg 2xl:max-w-2xl mx-auto font-light">
               Cùng nhìn ngắm những góc nhỏ xinh và không gian thực tế của chúng tôi qua những hình ảnh dưới đây.
             </p>
           </div>
@@ -402,10 +402,10 @@ export default function Home() {
       </section>
 
       {/* 8. SECTION CTA BANNER ("Sẵn sàng cho một kỳ nghỉ tại Đà Lạt?") */}
-      <section id='contact-us' className="relative bg-[#1A3B2F] text-white py-16 sm:py-20 overflow-hidden">
+      <section id='contact-us' className="relative bg-[#1A3B2F] text-white py-16 sm:py-20 2xl:py-24 [@media(min-width:1920px)]:py-28 overflow-hidden">
 
         {/* Left Pine Branch Foliage illustration */}
-        <div className="absolute left-0 top-0 bottom-0 w-36 sm:w-56 pointer-events-none opacity-25 text-emerald-200">
+        <div className="absolute left-0 top-0 bottom-0 w-36 sm:w-56 2xl:w-72 [@media(min-width:1920px)]:w-96 pointer-events-none opacity-25 text-emerald-200">
           <svg viewBox="0 0 100 200" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M50,180 V20" />
             <path d="M50,160 Q20,150 10,135 Q35,130 50,145" />
@@ -418,30 +418,30 @@ export default function Home() {
         </div>
 
         {/* Right Gentle Mountain Outline illustration */}
-        <div className="absolute right-0 bottom-0 top-0 w-64 sm:w-96 pointer-events-none opacity-20 text-white">
+        <div className="absolute right-0 bottom-0 top-0 w-64 sm:w-96 2xl:w-[480px] [@media(min-width:1920px)]:w-[580px] pointer-events-none opacity-20 text-white">
           <svg viewBox="0 0 300 150" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-full w-full">
             <path d="M0,150 L80,80 L140,110 L220,50 L300,150" />
             <path d="M60,150 L120,95 L170,120 L240,75 L300,125" />
           </svg>
         </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <div className="relative z-10 max-w-4xl 2xl:max-w-5xl [@media(min-width:1920px)]:max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10 text-center space-y-4 2xl:space-y-6">
 
-          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal leading-tight tracking-tight text-white">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] 2xl:text-5xl [@media(min-width:1920px)]:text-6xl font-normal leading-tight tracking-tight text-white">
             Sẵn sàng cho một kỳ nghỉ tại Đà Lạt?
           </h2>
 
-          <p className="text-stone-200/90 text-sm sm:text-base max-w-xl mx-auto font-light leading-relaxed">
+          <p className="text-stone-200/90 text-sm sm:text-base 2xl:text-xl max-w-xl 2xl:max-w-3xl mx-auto font-light leading-relaxed">
             Liên hệ với chúng tôi để tìm hiểu thông tin phòng nghỉ và lựa chọn phù hợp cho chuyến đi của bạn.
           </p>
 
-          <div className="pt-4">
+          <div className="pt-4 2xl:pt-6">
             <button
               type="button"
               onClick={() => openBookingFor('Đặt phòng từ CTA Banner')}
-              className="inline-flex items-center gap-2.5 bg-white hover:bg-stone-100 text-[#1A3B2F] font-semibold text-xs sm:text-sm px-7 py-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 cursor-pointer"
+              className="inline-flex items-center gap-2.5 bg-white hover:bg-stone-100 text-[#1A3B2F] font-semibold text-xs sm:text-sm 2xl:text-base px-7 py-3.5 2xl:px-10 2xl:py-4.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95 cursor-pointer"
             >
-              <svg className="w-4 h-4 text-[#1A3B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-4 h-4 2xl:w-5 2xl:h-5 text-[#1A3B2F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
               <span>Liên hệ đặt phòng</span>

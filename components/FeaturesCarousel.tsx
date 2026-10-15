@@ -159,15 +159,15 @@ export default function FeaturesCarousel() {
             }}
             className="shrink-0"
           >
-            <div className="bg-white rounded-2xl p-6 border border-[#EDE4D5] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group/card hover:-translate-y-1 h-full min-h-[210px] cursor-pointer">
+            <div className="bg-white rounded-2xl 2xl:rounded-3xl p-6 2xl:p-8 border border-[#EDE4D5] shadow-xs hover:shadow-md transition-all duration-300 flex flex-col justify-between group/card hover:-translate-y-1 h-full min-h-[210px] 2xl:min-h-[240px] cursor-pointer">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-[#FAF4ED] text-[#8D4427] flex items-center justify-center mb-4 group-hover/card:bg-[#8D4427] group-hover/card:text-white transition-colors duration-300">
+                <div className="w-12 h-12 2xl:w-14 2xl:h-14 rounded-xl 2xl:rounded-2xl bg-[#FAF4ED] text-[#8D4427] flex items-center justify-center mb-4 group-hover/card:bg-[#8D4427] group-hover/card:text-white transition-colors duration-300">
                   {item.icon}
                 </div>
-                <h4 className="font-serif text-lg font-medium text-[#2A2421] mb-2">
+                <h4 className="font-serif text-lg 2xl:text-xl font-medium text-[#2A2421] mb-2">
                   {item.title}
                 </h4>
-                <p className="text-xs sm:text-sm text-[#5C534E] leading-relaxed font-light">
+                <p className="text-xs sm:text-sm 2xl:text-base text-[#5C534E] leading-relaxed font-light">
                   {item.desc}
                 </p>
               </div>

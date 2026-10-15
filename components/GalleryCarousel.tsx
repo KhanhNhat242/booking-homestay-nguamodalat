@@ -167,9 +167,15 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
     } else if (windowWidth < 1280) {
       primarySpacing = 340
       secondarySpacing = 210
-    } else {
+    } else if (windowWidth < 1536) {
       primarySpacing = 390
       secondarySpacing = 240
+    } else if (windowWidth < 1920) {
+      primarySpacing = 440
+      secondarySpacing = 270
+    } else {
+      primarySpacing = 490
+      secondarySpacing = 300
     }
 
     const x =
@@ -196,7 +202,7 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
     <div className="relative w-full overflow-hidden py-1 select-none">
       {/* Vùng Coverflow chứa các cards */}
       <div
-        className="relative h-[400px] sm:h-[430px] md:h-[455px] lg:h-[475px] w-full flex items-center justify-center"
+        className="relative h-[400px] sm:h-[430px] md:h-[455px] lg:h-[475px] 2xl:h-[505px] [@media(min-width:1920px)]:h-[540px] w-full flex items-center justify-center"
         onTouchStart={(e) => {
           touchX.current = e.touches[0].clientX
         }}
@@ -214,9 +220,9 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
         <button
           onClick={prevSlide}
           aria-label="Ảnh trước"
-          className="absolute left-1 sm:left-2 lg:left-3 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-md border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          className="absolute left-1 sm:left-2 lg:left-3 2xl:left-4 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 2xl:w-14 2xl:h-14 rounded-full bg-white/95 backdrop-blur-md border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
         >
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 2xl:w-6 2xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
@@ -224,9 +230,9 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
         <button
           onClick={nextSlide}
           aria-label="Ảnh tiếp theo"
-          className="absolute right-1 sm:right-2 lg:right-3 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full bg-white/95 backdrop-blur-md border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
+          className="absolute right-1 sm:right-2 lg:right-3 2xl:right-4 top-1/2 -translate-y-1/2 z-40 w-10 h-10 sm:w-11 sm:h-11 md:w-12 md:h-12 2xl:w-14 2xl:h-14 rounded-full bg-white/95 backdrop-blur-md border border-[#EDE4D5] text-[#2A2421] hover:text-[#8D4427] hover:border-[#8D4427] shadow-xl flex items-center justify-center transition-all hover:scale-110 active:scale-95 cursor-pointer"
         >
-          <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg className="w-4 h-4 sm:w-5 sm:h-5 2xl:w-6 2xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" d="M9 5l7 7-7 7" />
           </svg>
         </button>
@@ -247,31 +253,31 @@ export default function GalleryCarousel({ onOpenBooking }: GalleryCarouselProps)
                 }
               }}
               style={style}
-              className={`absolute top-0 left-1/2 w-[275px] sm:w-[325px] md:w-[365px] lg:w-[395px] xl:w-[415px] h-[385px] sm:h-[415px] md:h-[440px] lg:h-[460px] bg-white rounded-[24px] p-3 sm:p-4 shadow-xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between border border-[#EDE4D5]/80 cursor-pointer ${isCenter
+              className={`absolute top-0 left-1/2 w-[275px] sm:w-[325px] md:w-[365px] lg:w-[395px] xl:w-[415px] 2xl:w-[440px] [@media(min-width:1920px)]:w-[470px] h-[385px] sm:h-[415px] md:h-[440px] lg:h-[460px] 2xl:h-[490px] [@media(min-width:1920px)]:h-[520px] bg-white rounded-[24px] 2xl:rounded-[28px] p-3 sm:p-4 2xl:p-5 shadow-xl transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col justify-between border border-[#EDE4D5]/80 cursor-pointer ${isCenter
                 ? 'shadow-2xl ring-2 ring-[#8D4427]/20 cursor-pointer'
                 : 'hover:opacity-90'
                 }`}
             >
               {/* Ảnh phía trên */}
-              <div className="relative w-full h-48 sm:h-54 md:h-60 lg:h-64 rounded-[18px] overflow-hidden shrink-0 group">
+              <div className="relative w-full h-48 sm:h-54 md:h-60 lg:h-64 2xl:h-72 [@media(min-width:1920px)]:h-76 rounded-[18px] 2xl:rounded-[22px] overflow-hidden shrink-0 group">
                 <Image
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, 420px"
+                  sizes="(max-width: 640px) 280px, (max-width: 1024px) 360px, (max-width: 1536px) 440px, 490px"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
               </div>
 
               {/* Nội dung chi tiết card */}
-              <div className="flex-1 flex flex-col justify-between pt-2.5 px-1 pb-0.5">
+              <div className="flex-1 flex flex-col justify-between pt-2.5 2xl:pt-3.5 px-1 pb-0.5">
                 <div>
                   <div className="flex items-center justify-between gap-2">
-                    <h3 className="font-serif text-base sm:text-lg font-bold text-[#2A2421] leading-snug truncate">
+                    <h3 className="font-serif text-base sm:text-lg 2xl:text-xl font-bold text-[#2A2421] leading-snug truncate">
                       {item.title}
                     </h3>
-                    <span className="text-[11px] font-semibold text-amber-600 shrink-0">
+                    <span className="text-[11px] 2xl:text-xs font-semibold text-amber-600 shrink-0">
                       {item.rating}
                     </span>
                   </div>
