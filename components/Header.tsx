@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 interface HeaderProps {
   onOpenBooking?: () => void
@@ -9,6 +9,8 @@ interface HeaderProps {
 export default function Header({ onOpenBooking }: HeaderProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const isManualScroll = useRef(false)
+  const manualTimeout = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   const navLinks = [
     { label: 'Trang chủ', href: '/#home', id: 'home' },
@@ -19,14 +21,28 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
   // Track active section on scroll
   useEffect(() => {
-    const sectionIds = ['contact-us', 'service', 'about-us', 'home']
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 140
+      if (isManualScroll.current) return
+
+      // Nếu cuộn gần chạm đáy trang hoặc footer xuất hiện trong tầm nhìn -> active 'contact-us'
+      const isBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 60
+      const contactEl = document.getElementById('contact-us')
+      if (isBottom || (contactEl && contactEl.getBoundingClientRect().top <= window.innerHeight * 0.75)) {
+        setActiveSection('contact-us')
+        return
+      }
+
+      const sectionIds = ['service', 'about-us', 'home']
+      const scrollPosition = window.scrollY + 160
       for (const id of sectionIds) {
         const el = document.getElementById(id)
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(id)
-          return
+        if (el) {
+          const rect = el.getBoundingClientRect()
+          const top = rect.top + window.scrollY
+          if (top <= scrollPosition) {
+            setActiveSection(id)
+            return
+          }
         }
       }
       setActiveSection('home')
@@ -34,13 +50,23 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
     window.addEventListener('scroll', handleScroll, { passive: true })
     handleScroll()
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      if (manualTimeout.current) clearTimeout(manualTimeout.current)
+    }
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string, id: string) => {
     e.preventDefault()
     setIsOpen(false)
     setActiveSection(id)
+
+    // Khóa tạm handleScroll khi đang smooth scroll để tránh bị các section đi ngang qua ghi đè active
+    isManualScroll.current = true
+    if (manualTimeout.current) clearTimeout(manualTimeout.current)
+    manualTimeout.current = setTimeout(() => {
+      isManualScroll.current = false
+    }, 1000)
 
     if (id === 'home') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -56,7 +82,7 @@ export default function Header({ onOpenBooking }: HeaderProps) {
   }
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#EDE6DC] transition-all">
+    <header className="sticky top-0 z-50 w-full bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#EDE6DC] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
 
@@ -107,11 +133,10 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href, link.id)}
-                  className={`text-sm font-medium transition-colors relative py-1 cursor-pointer ${
-                    isActive
-                      ? 'text-[#8D4427] font-semibold'
-                      : 'text-[#4A423D] hover:text-[#8D4427]'
-                  }`}
+                  className={`text-sm font-medium transition-colors relative py-1 cursor-pointer ${isActive
+                    ? 'text-[#8D4427] font-semibold'
+                    : 'text-[#4A423D] hover:text-[#8D4427]'
+                    }`}
                 >
                   {link.label}
                   {isActive && (
@@ -177,11 +202,10 @@ export default function Header({ onOpenBooking }: HeaderProps) {
                 key={link.label}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href, link.id)}
-                className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors cursor-pointer ${
-                  isActive
-                    ? 'text-[#8D4427] bg-[#8D4427]/10 font-semibold'
-                    : 'text-[#4A423D] hover:text-[#8D4427] hover:bg-black/5'
-                }`}
+                className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors cursor-pointer ${isActive
+                  ? 'text-[#8D4427] bg-[#8D4427]/10 font-semibold'
+                  : 'text-[#4A423D] hover:text-[#8D4427] hover:bg-black/5'
+                  }`}
               >
                 {link.label}
               </a>

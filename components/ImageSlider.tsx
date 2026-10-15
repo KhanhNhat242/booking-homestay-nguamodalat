@@ -179,13 +179,7 @@ export default function ImageSlider() {
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
 
                         {/* Nội dung */}
-                        <div className="absolute bottom-[24%] left-[7%] right-[7%] max-w-xl text-white">
-                            <Reveal show={play} delay={700}>
-                                <span className="inline-block border-b border-white/70 pb-1.5 text-xs uppercase tracking-[0.3em] md:text-sm">
-                                    {s.eyebrow}
-                                </span>
-                            </Reveal>
-
+                        <div className="absolute bottom-[40%] left-[7%] right-[7%] max-w-xl text-white">
                             <div className="mt-5">
                                 {s.title.map((line, k) => (
                                     <Reveal key={line} show={play} delay={850 + k * 150}>
@@ -201,31 +195,13 @@ export default function ImageSlider() {
                                     {s.subtitle}
                                 </h3>
                             </Reveal>
-
-                            <Reveal show={play} delay={1300}>
-                                <p className="mt-4 hidden max-w-md text-base leading-relaxed text-white/85 md:block">
-                                    {s.desc}
-                                </p>
-                            </Reveal>
-
-                            <Reveal show={play} delay={1450}>
-                                <Link
-                                    href={s.href}
-                                    className="group mt-7 inline-flex items-center gap-3 rounded-full border border-white px-7 py-3 text-xs uppercase tracking-[0.2em] backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black md:text-sm"
-                                >
-                                    Xem thêm
-                                    <span className="transition-transform duration-300 group-hover:translate-x-1.5">
-                                        →
-                                    </span>
-                                </Link>
-                            </Reveal>
                         </div>
                     </article>
                 )
             })}
 
             {/* Thanh điều khiển */}
-            <div className="absolute inset-x-0 bottom-0 z-40 flex items-end justify-between gap-6 px-[7%] pb-7 md:pb-10">
+            <div className="absolute inset-x-0 bottom-0 z-30 flex items-end justify-between gap-6 px-[7%] pb-7 md:pb-10">
                 {/* Tab đánh số + progress */}
                 <div className="flex max-w-2xl flex-1 gap-3 md:gap-6">
                     {slides.map((s, i) => {
