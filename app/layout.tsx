@@ -3,6 +3,7 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 import { Suspense } from "react";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const playfair = Playfair_Display({
   variable: "--font-serif",
@@ -38,8 +39,11 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col font-sans bg-[#FAF7F2] text-[#2A2421]">
         <Suspense fallback={null}>
-          <AntdRegistry>{children}</AntdRegistry>
+          <AntdRegistry>
+            {children}
+          </AntdRegistry>
         </Suspense>
+        <ScrollReveal />
       </body>
     </html>
   );

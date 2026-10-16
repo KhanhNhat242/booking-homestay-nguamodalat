@@ -43,13 +43,128 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
+
 ::-webkit-scrollbar-track {
   background: #FAF7F2;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #D8CEBE;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: #B8A894;
+}
+
+/* animation */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Lúc ẩn đi thì chạy nhanh, tránh cảm giác nặng nề khi cuộn ngược */
+[data-reveal]:not(.is-revealed) {
+  transition-duration: 0.35s;
+}
+
+[data-reveal='left'] {
+  transform: translateX(-56px);
+}
+
+[data-reveal='right'] {
+  transform: translateX(56px);
+}
+
+[data-reveal='up'] {
+  transform: translateY(40px);
+}
+
+[data-reveal='flip'] {
+  transform: perspective(900px) rotateX(-32deg) translateY(28px);
+  transform-origin: top center;
+}
+
+[data-reveal='grow-x'] {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+[data-reveal='grow-c'] {
+  transform: scaleX(0);
+  transform-origin: center;
+}
+
+/* Mờ nét + nhích nhẹ lên: dịu hơn blur đứng yên */
+[data-reveal='blur'] {
+  transform: translateY(18px);
+  filter: blur(8px);
+  transition:
+    opacity 1s ease,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1s ease;
+}
+
+[data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Ảnh trong card: phóng to rồi "lắng" về đúng cỡ khi card hiện */
+[data-reveal] .reveal-zoom {
+  transform: scale(1.18);
+  transition: transform 1.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+[data-reveal].is-revealed .reveal-zoom {
+  transform: scale(1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+/* Hoạ tiết SVG trang trí nhẹ nhàng bồng bềnh */
+@keyframes deco-float {
+
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-10px) rotate(1.5deg);
+  }
+}
+
+.deco-float {
+  animation: deco-float 9s ease-in-out infinite;
+  transform-origin: bottom center;
+}
+
+@media (scripting: none) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+
+  [data-reveal] .reveal-zoom {
+    transform: none;
+    transition: none;
+  }
+
+  .deco-float {
+    animation: none;
+  }
 }

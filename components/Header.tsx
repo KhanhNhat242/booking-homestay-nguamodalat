@@ -83,8 +83,8 @@ export default function Header({ onOpenBooking }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#FAF7F2]/95 backdrop-blur-md border-b border-[#EDE6DC] transition-all">
-      <div className="max-w-[1400px] 2xl:max-w-[1580px] [@media(min-width:1920px)]:max-w-[1760px] [@media(min-width:2400px)]:max-w-[2100px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10 [@media(min-width:1920px)]:px-12">
-        <div className="flex items-center justify-between h-20 2xl:h-24">
+      <div className="max-w-7xl 2xl:max-w-[1320px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-20">
 
           {/* Logo Brand: House Icon + Text "Ngủ Ấm Ở ĐÀ LẠT" */}
           <a
